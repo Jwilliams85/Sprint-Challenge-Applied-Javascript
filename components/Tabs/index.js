@@ -14,31 +14,32 @@
 //     </div>
 //   </div>
 
+axios.get('https://lambda-times-backend.herokuapp.com/topics')
+.then((response) => {
+    const dom = document.querySelector('.topics')
+    response.data.topics.forEach(element => {
+        dom.appendChild(createTabs(element))
+    })
+})
+.catch((error) => {
+    console.log('Network Error')
+    console.log(erro)
+})
 
-const createTabs = (tab) => {
+const createTabs = (object) => {
 
     //Create Elements
   
     const tabs1 = document.createElement('div')
-    const topics = document.createElement('div')
-    const title = document.createElement('span')
-
-    //Create HTMl Structure
     
-    tabs1.appendChild(topics)
-    topics.appendChild(title)
     
     //Add Classes
 
-    tabs1.classList.add('tabs')
-    topics.classList.add('topic')
-    title.classList.add('title')
-
+    tabs1.classList.add('tab')
+    
     //Add Content
 
-    topics.textContent =  'TRENDING TOPIC'
+    tabs1.innerHTML = object
 
 return tabs1
 }
-
-const tabs = document.querySelector('.tabs')
