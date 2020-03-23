@@ -7,3 +7,38 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+// div class="tabs">
+//     <div class="topics">
+//       <span class="title">TRENDING TOPICS:</span>
+//     </div>
+//   </div>
+
+
+const createTabs = (tab) => {
+
+    //Create Elements
+  
+    const tabs1 = document.createElement('div')
+    const topics = document.createElement('div')
+    const title = document.createElement('span')
+
+    //Create HTMl Structure
+    
+    tabs1.appendChild(topics)
+    topics.appendChild(title)
+    
+    //Add Classes
+
+    tabs1.classList.add('tabs')
+    topics.classList.add('topic')
+    title.classList.add('title')
+
+    //Add Content
+
+    topics.textContent =  'TRENDING TOPIC'
+
+return tabs1
+}
+
+const tabs = document.querySelector('.tabs')
