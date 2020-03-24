@@ -49,6 +49,11 @@ div1.classList.add('carousel')
 div2.classList.add('left-button')
 div3.classList.add('right-button')
 
+//Event Listener
+
+div2.addEventListener('click', () => {
+  div2.classList.toggle('hide-btn')
+})
 
 return div1
 

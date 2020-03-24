@@ -21,12 +21,12 @@
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then((response) => {
         console.log(response);
-        const cardsCont = ducument.querySelector('.cards-container')
-        const arrayValues = Object.values(response.data.articles)
+        const cardsCont = document.querySelector('.cards-container');
+        const arrayValues = Object.values(response.data.articles);
         arrayValues.forEach(element => {
             element.forEach(article => {
-                cardsCont.appendChild(createCard(article))
-                console.log('CreatedCard')
+                cardsCont.appendChild(createCard(article));
+                console.log('CreatedCard');
 
             })
         })
@@ -47,21 +47,21 @@ function createCard(object){
     const img = document.createElement ('img')
     const span = document.createElement('span')
     span.innerHTML = "By " + object.authorName
+    div2.innerHTML = object.headline
 
     //Create Structure
-    div.appendChild.add(div2)
-    div.appendChild.add(div3)
-    div3.appendChild.add(div4)
-    div3.appendChild.add(span)
-    div4.appendChild.add(img)
+    div.appendChild(div2)
+    div.appendChild(div3)
+    div3.appendChild(div4)
+    div3.appendChild(span)
+    div4.appendChild(img)
 
     //Add Classes
 div.classList.add('card')
 div2.classList.add('headline')
-div2.innerHTML = object.headline
 div3.classList.add('author')
 div4.classList.add('img-container')
-img.src =object.authorPhoto
+img.src = object.authorPhoto
 
 return div
 
