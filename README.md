@@ -30,7 +30,7 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
-DOM stand for Document Object Model. It is an object representation of the HTML elements of a webpage.
+DOM stand for Document Object Model. It is an object representation of the HTML elements of a webpage. DOM is what allows you to manipulate the Browser. 
 
 What is an event?
 

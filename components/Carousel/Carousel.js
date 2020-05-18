@@ -18,12 +18,14 @@
   </div>
 */
 
+
+
 function createCarousel() {
 
   //Create Element
 
-  const div1 = document.createElement ('div')
-  const div2 = document.createElement ('div')
+  const carousel = document.createElement ('div')
+  const leftButton = document.createElement ('div')
   const img1 = document.createElement ('img')
   img1.src = "./assets/carousel/mountains.jpeg" 
   const img2 = document.createElement ('img')
@@ -31,32 +33,38 @@ function createCarousel() {
   const img3 = document.createElement ('img')
   img3.src = "./assets/carousel/trees.jpeg"
   const img4 = document.createElement ('img')
-  img3.src = "./assets/carousel/turntable.jpeg" 
-  const div3 = document.createElement ('div')
+  img4.src = "./assets/carousel/turntable.jpeg" 
+  const rightButton = document.createElement ('div')
 
  //Create HTML Structure
 
-div1.appendChild(div2)
-div1.appendChild(div3)
-div1.appendChild(img1)
-div1.appendChild(img2)
-div1.appendChild(img3)
-div1.appendChild(img4)
-
+carousel.appendChild(leftButton)
+carousel.appendChild(img1)
+carousel.appendChild(img2)
+carousel.appendChild(img3)
+carousel.appendChild(img4)
+carousel.appendChild(rightButton)
 //Create Classes
 
-div1.classList.add('carousel')
-div2.classList.add('left-button')
-div3.classList.add('right-button')
+carousel.classList.add('carousel')
+leftButton.classList.add('left-button')
+rightButton.classList.add('right-button')
+// img1.classList.add('img')
+// img2.classList.add('img')
+// img3.classList.add('img')
+// img4.classList.add('img')
 
 //Event Listener
 
-div2.addEventListener('click', () => {
-  div2.classList.toggle('hide-btn')
+leftButton.addEventListener('click', () => {
+  leftButton.classList.toggle('hide-btn')
 })
 
-return div1
+return carousel
 
 }
 
-const container = document.querySelector('.carousel-container').appendChild(createCarousel())
+const CarouselContainer = document.querySelector('.carousel-container');
+const newCarousel = createCarousel();
+CarouselContainer.appendChild(newCarousel);
+
