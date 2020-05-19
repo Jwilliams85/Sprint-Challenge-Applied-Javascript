@@ -20,30 +20,41 @@
 
 
 
-function createCarousel() {
+function createCarousel(array) {
 
   //Create Element
 
   const carousel = document.createElement ('div')
   const leftButton = document.createElement ('div')
-  const img1 = document.createElement ('img')
-  img1.src = "./assets/carousel/mountains.jpeg" 
-  const img2 = document.createElement ('img')
-  img2.src = "./assets/carousel/computer.jpeg"
-  const img3 = document.createElement ('img')
-  img3.src = "./assets/carousel/trees.jpeg"
-  const img4 = document.createElement ('img')
-  img4.src = "./assets/carousel/turntable.jpeg" 
+  // const img1 = document.createElement ('img')
+  // const img2 = document.createElement ('img')
+  // const img3 = document.createElement ('img')
+  // const img4 = document.createElement ('img')
   const rightButton = document.createElement ('div')
+
+
+const imgArray = ["./assets/carousel/mountains.jpeg", "./assets/carousel/computer.jpeg", "./assets/carousel/trees.jpeg", "./assets/carousel/turntable.jpeg" ]
+for (let i=0; i<imgArray.length; i++) {
+  const img = document.createElement ('img')
+  img.src = `${imgArray[i]}`
+  carousel.appendChild(img)
+} 
+
+// img1.src = 
+  // img2.src = 
+  // img3.src = 
+  // img4.src = 
+  
 
  //Create HTML Structure
 
 carousel.appendChild(leftButton)
-carousel.appendChild(img1)
-carousel.appendChild(img2)
-carousel.appendChild(img3)
-carousel.appendChild(img4)
+// carousel.appendChild(img1)
+// carousel.appendChild(img2)
+// carousel.appendChild(img3)
+// carousel.appendChild(img4)
 carousel.appendChild(rightButton)
+
 //Create Classes
 
 carousel.classList.add('carousel')
@@ -54,10 +65,33 @@ rightButton.classList.add('right-button')
 // img3.classList.add('img')
 // img4.classList.add('img')
 
+
 //Event Listener
 
+
+let currentPic= 1;
+
+let currentImg = carousel.childNodes;
+currentImg[currentPic].style.display = "block";
+
 leftButton.addEventListener('click', () => {
-  leftButton.classList.toggle('hide-btn')
+  currentImg[currentPic].style.display = "none";
+  if(currentPic == 1){
+    currentIndex = imgArray.length;
+  }else {
+    currentIndex --;
+  }
+  currentImg[currentPic].style.display = "block";
+})
+
+rightButton.addEventListener('click', () => {
+  currentImg[currentPic].style.display = "none";
+  if(currentPic == imgArray.length){
+    currentPic = 1;
+  }else {
+    currentPic ++;
+  }
+  currentImg[currentPic].style.display = "block";
 })
 
 return carousel
